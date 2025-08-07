@@ -14,19 +14,32 @@ Before you can use the converter, you need to install its dependencies.
 1.  **Download the code:**
     *   Download the project files to a folder on your computer. You can do this by clicking the "Code" button on the repository page and selecting "Download ZIP". Unzip the downloaded file.
 
-2.  **Open a terminal (command prompt):**
-    *   **Windows:** Press `Win + R`, type `cmd`, and press Enter.
-    *   **macOS:** Open the "Terminal" application (you can find it in Applications > Utilities).
-    *   **Linux:** Open your distribution's terminal application.
-
-3.  **Navigate to the project directory:**
-    *   In the terminal, use the `cd` command to move to the folder where you downloaded the project files. For example, if you downloaded the files to a folder named `html-to-pdf-converter` on your desktop, you would type:
+2.  **Windows: Install GTK3 Dependencies:**
+    *   WeasyPrint requires some extra libraries on Windows. The easiest way to install them is with MSYS2.
+    *   **a. Install MSYS2:** Download and install it from [msys2.org](https://www.msys2.org/).
+    *   **b. Open the MSYS2 terminal:** From the Start Menu, open "MSYS2 MSYS".
+    *   **c. Update the package database:** Run `pacman -Syu` and follow the prompts. You may need to close and reopen the terminal to complete the update.
+    *   **d. Install GTK3:** Run the following command in the MSYS2 terminal:
         ```bash
-        cd Desktop/html-to-pdf-converter
+        pacman -S mingw-w64-x86_64-gtk3
         ```
+    *   **e. Add MSYS2 to your PATH:** You need to add the MSYS2 `bin` folder to your Windows environment variables so that Python can find the libraries.
+        *   Press the Windows key, type "environment variables", and select "Edit the system environment variables".
+        *   Click the "Environment Variables..." button.
+        *   Under "System variables", find the "Path" variable, select it, and click "Edit...".
+        *   Click "New" and add the path to your MSYS2 `mingw64/bin` directory. By default, this is `C:\msys64\mingw64\bin`.
+        *   Click "OK" on all the windows to save the changes.
+        *   **Important:** You will need to close and reopen any open command prompt or terminal windows for this change to take effect.
 
-4.  **Install the dependencies:**
-    *   Once you are in the correct directory, run the following command to install the necessary Python packages:
+3.  **Open a terminal (command prompt):**
+    *   **Windows:** Press `Win + R`, type `cmd`, and press Enter.
+    *   **macOS/Linux:** Open your terminal application.
+
+4.  **Navigate to the project directory:**
+    *   In the terminal, use the `cd` command to move to the folder where you downloaded the project files.
+
+5.  **Install the Python dependencies:**
+    *   Once you are in the correct directory, run the following command:
         ```bash
         pip install -r requirements.txt
         ```
